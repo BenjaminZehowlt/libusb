@@ -126,6 +126,11 @@ static void windows_refresh_device_list(struct libusb_context *ctx, const bool d
 	{
 		priv = usbi_get_device_priv(dev);
 
+		if (priv->path == NULL)
+		{
+			continue;
+		}
+
 		if(_stricmp(priv->path, device_name) != 0)
 		{
 			continue;
